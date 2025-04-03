@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">Flashcards</a>
+      </div>
+    </nav>
+
+    <div class="header container">
+      <h5>Home</h5>
+      <button class="btn btn-primary" id="create" data-bs-toggle="modal" data-bs-target="#createDeck">Create</button>
+    </div>
+
+    <div class="decks container">
+      <% for(let deck of decks) { %>
+      <div class="deck">
+        <a href="/decks/<%= deck.id %>/cards">
+          <p><%= deck.name %></p>
+        </a>
+        <div class="actions">
+          <div class="hidden">
+            <a href="/decks/<%= deck.id %>/cards/create">
+              <button>
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </a>
+            <button class="edit" data-id="<%= deck.id %>" data-name="<%= deck.name %>" data-bs-toggle="modal" data-bs-target="#editDeck">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <form method="GET" action="/decks/<%= deck.id %>/delete">
+              <button class="delete">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </form>
+          </div>
+          <a href="/decks/<%= deck.id %>/cards">
+            <button>
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+          </a>
+        </div>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="modal fade" id="createDeck" tabindex="-1" aria-labelledby="createDeck" aria-hidden="true">
+      <div class="modal-dialog">
+        <form method="post" action="/decks" class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Create a deck</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name" class="form-label">How do you want to call your deck?</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" name="name" required >
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editDeck" tabindex="-1" aria-labelledby="editDeck" aria-hidden="true">
+      <div class="modal-dialog">
+        <form method="post" action="/decks" class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Edit a deck</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="name" class="form-label">How do you want to call your deck?</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" name="name" required >
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/decks.js"></script>
+    <%- include('../partials/scripts') %>
+  </body>
+</html>

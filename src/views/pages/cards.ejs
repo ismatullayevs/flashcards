@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="/" class="navbar-brand">Flashcards</a>
+      </div>
+    </nav>
+
+    <div class="header container mb-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item">
+            <a href="/decks/<%= deck.id %>/cards"><%= deck.name %></a>
+          </li>
+        </ol>
+      </nav>
+      <a href="/decks/<%= deck.id %>/cards/create" class="btn btn-primary">Create</a>
+    </div>
+
+    <div class="cards container">
+      <% for (card of cards) {%>
+        <div class="card mb-3">
+          <div class="card-body">
+            <p class="card-text"><%= card.question %></p>
+            <p class="card-text mb-3 text-secondary"><%= card.answer %></p>
+            <a href="/cards/<%= card.id %>/edit" class="btn btn-primary me-2">Edit</a>
+            <a href="/cards/<%= card.id %>/delete">
+              <button class="btn btn-danger">Delete</button>
+            </a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+
+    <%- include('../partials/scripts') %>
+  </body>
+</html>
+

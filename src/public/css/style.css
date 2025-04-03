@@ -1,0 +1,67 @@
+a {
+  color: inherit;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0 !important;
+}
+
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.decks {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.deck {
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+}
+
+.deck .actions {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.deck .actions .hidden {
+  display: flex;
+  opacity: 0;
+  gap: 5px;
+  align-items: center;
+  transition: all .1s;
+}
+
+.deck:hover .actions .hidden {
+  opacity: 1;
+}
+
+.deck .actions button {
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.deck .actions button.delete {
+  color: red;
+}

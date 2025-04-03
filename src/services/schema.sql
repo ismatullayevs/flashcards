@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS deck (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+
+CREATE TABLE IF NOT EXISTS 'card' (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    deck_id INTEGER,
+    question TEXT,
+    answer TEXT,
+    FOREIGN KEY(deck_id) REFERENCES deck(id)
+);

@@ -1,8 +1,8 @@
-import { Card } from "./card";
+export interface DeckIn {
+  name: string;
+}
 
 export interface Deck {
-  id: string;
+  id: number;
   name: string;
-  description: string;
-  cards: Card[];
 }
