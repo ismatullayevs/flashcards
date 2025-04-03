@@ -65,3 +65,11 @@ h1, h2, h3, h4, h5, h6, p {
 .deck .actions button.delete {
   color: red;
 }
+
+.footer {
+  background-color: blue;
+  margin-top: 400px;
+  color: white;
+  padding: 20px;
+  opacity: .5;
+}
