@@ -73,3 +73,10 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 20px;
   opacity: .5;
 }
+
+@media (min-width: 600px) {
+  .container {
+    max-width: 900px !important;
+    margin: inherit auto;
+  }
+}

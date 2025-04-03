@@ -45,6 +45,9 @@
         </div>
       </div>
       <% } %>
+      <% if (!decks.length) { %>
+       No decks to show
+      <% } %>
     </div>
 
     <div class="modal fade" id="createDeck" tabindex="-1" aria-labelledby="createDeck" aria-hidden="true">

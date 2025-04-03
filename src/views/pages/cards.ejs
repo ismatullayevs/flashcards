@@ -19,7 +19,10 @@
           </li>
         </ol>
       </nav>
-      <a href="/decks/<%= deck.id %>/cards/create" class="btn btn-primary">Create</a>
+      <div>
+        <button class="btn btn-info me-2">Study</button>
+        <a href="/decks/<%= deck.id %>/cards/create" class="btn btn-primary">Create</a>
+      </div>
     </div>
 
     <div class="cards container">
@@ -35,7 +38,11 @@
           </div>
         </div>
       <% } %>
+      <% if (!cards.length) { %>
+        No cards to show
+       <% } %>
     </div>
+    
 
     <%- include('../partials/scripts') %>
   </body>

@@ -1,7 +1,7 @@
 import  { Request, Response, Router } from 'express';
-import { DeckService } from '../services/deck';
-import { Card } from '../models/card';
-import { CardService } from '../services/card';
+import { DeckService } from '../../services/deck';
+import { Card } from '../../models/card';
+import { CardService } from '../../services/card';
 
 const router = Router();
 
