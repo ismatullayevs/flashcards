@@ -24,10 +24,11 @@ if (env === 'prod') {
     cert: fs.readFileSync(process.env.FULLCHAIN_KEY_PATH || ''),
   }
   https.createServer(options, app).listen(port, () => {
-    console.log(`Flashcards app listening on port ${port}`)
+    console.log(`Listening on port ${port}`)
   })
-} else {
+}
+else {
   app.listen(port, () => {
-    console.log(`Flashcards app listening on port ${port}`)
+    console.log(`Listening on port ${port}`)
   })
 }

@@ -40,7 +40,7 @@
         <label for="answer" class="form-label">Answer</label>
         <textarea name="answer" id="answer" class="form-control" required><% if (card) { %><%= card.answer %><% } %></textarea>
       </div>
-      <button type="button" class="btn btn-secondary">Cancel</button>
+      <a href="javascript:history.back()" class="btn btn-secondary">Cancel</a>
       <button type="submit" class="btn btn-primary"><% if (card) { %>
        Save
       <% } else { %>

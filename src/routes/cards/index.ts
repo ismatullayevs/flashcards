@@ -1,7 +1,9 @@
-import  { Request, Response, Router } from 'express';
+import { Request, Response, Router } from 'express';
 import { DeckService } from '../../services/deck';
 import { Card } from '../../models/card';
 import { CardService } from '../../services/card';
+import cardValidationRules from '../../validators/card';
+import { validationResult } from 'express-validator';
 
 const router = Router();
 
@@ -25,7 +27,13 @@ router.get('/cards/:id/delete', async (req: Request, res: Response) => {
   res.redirect(`/decks/${card.deck_id}/cards`);
 });
 
-router.post('/cards/:id/edit', async (req: Request, res: Response) => {
+router.post('/cards/:id/edit', cardValidationRules(), async (req: Request, res: Response) => {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    res.status(400).json({ errors: result.array() });
+    return
+  }
+
   let card: Card = {
     id: Number(req.params.id),
     question: req.body.question,
